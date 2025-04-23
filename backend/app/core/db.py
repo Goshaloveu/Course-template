@@ -21,6 +21,7 @@ def init_db(session: Session) -> None:
     # This works because the models are already imported and registered from app.models
     # SQLModel.metadata.create_all(engine)
 
+    print(str(settings.SQLALCHEMY_DATABASE_URI))
     user = session.exec(
         select(User).where(User.email == settings.FIRST_SUPERUSER)
     ).first()
